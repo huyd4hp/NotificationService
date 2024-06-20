@@ -1,0 +1,14 @@
+version: "3"
+services:
+  NotificationDb:
+    image: mongo:latest
+    container_name: NotificationDb
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_DATABASE}
+    volumes:
+      - ./database1/mongodb/:/data/db
+    ports:
+      - "${MONGO_PORT}:27017"
